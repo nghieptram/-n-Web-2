@@ -1,0 +1,38 @@
+<%- include ('partials/header.ejs') -%>
+<div class="app">
+    <div class="header">
+      <h1 style="margin:auto;">Todo App</h1>
+    </div>
+    <div style="display:table;margin:10px auto">
+      <form action="/todos" method="POST" style="display:flex">
+        <div class="input-container">
+          <input name="newtodo" type="text" id="newtodo" autofocus>
+        </div>
+        <div class="button-container">
+          <button type="submit"><span>Add</span></button>
+        </div>
+      </form>
+    </div>
+    <div class="tasks">
+      <% todos.forEach(function(todo, index) { console.log(todo) %>
+        <% if(!todo.done) { %>
+          <div class="task">
+            <div class="task-header">
+              <div class="left-side">
+                <ion-icon name="flame" data-priority="high"></ion-icon><span class="task-title">Things to do</span>
+              </div>
+              <div class="right-side"> 
+                <div style="margin-left: 50px;" class="btn-complete-task" title="Complete task">
+                  <a href="/todos/<%= todo.id %>/done"><ion-icon name="checkmark"></ion-ico></a>
+                </div>
+              </div>
+            </div>
+            <div class="task-body"><span class="task-description"><%= todo.name %></span></div>
+            <div class="task-footer"><span class="task-status">Task completed</span><span class="task-timestamp"><%= todo.createdAt %></span></div>
+          </div>
+        <% }; %>
+      <% }); %>
+    </div>
+  </div>
+</body>
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>

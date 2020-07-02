@@ -1,0 +1,14 @@
+<%- include ('partials/header.ejs') -%>
+  <div class="container mt-5">
+    <% if(currentUser && currentUser.token!==null) {%>
+      <h4>Chào mừng <%= currentUser.displayName %> vui lòng activate</h4>
+    <% } if(currentUser && currentUser.token===null) { %>
+      <h4>Chào mừng <%= currentUser.displayName %>!</h4>
+    <% } else { %>
+      <h4></h4>
+      <% } %>
+    <div class="background" style="height:550px;display:flex">
+        <img src="/images/3509388.jpg" style="width:70%;height:550px;margin:auto" alt="background">
+    </div>
+  </div>
+</body>
