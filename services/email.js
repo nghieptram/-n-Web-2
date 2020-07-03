@@ -5,13 +5,13 @@ async function send(to,subject,content){
         port: 587,
         secure: false,
         auth: {
-          user: process.env.EMAIL_USER,
+          user: process.env.EMAIL_USERNAME,
           pass: process.env.EMAIL_PASSWORD
         }
       });
       
       transporter.sendMail({
-        from: process.env.EMAIL_USER,
+        from: process.env.EMAIL_USERNAME,
         to,
         subject,
         html: content,
